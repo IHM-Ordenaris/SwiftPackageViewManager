@@ -10,16 +10,18 @@ View Manager es un paquete que facilita la implementación de los componentes al
 
 ![](ButtosSP.gif)
 
-## Requirements
+## 🛠️ Requirements
 * Xcode 8 o posterior
 * iOS v14.0 o posterior
 
-## Installation
+## 💻 Installation
 ### Swift Package Manager
 
-Para instalar el paquete, puedes agregar el siguiente enlace en el campo de dependencias de [Swift Package Manager](https://swift.org/package-manager/)
+Para instalar el paquete, puedes agregar el siguiente enlace en el campo de búsqueda de dependencias de [Swift Package Manager](https://swift.org/package-manager/)
 
-## Example
+* <https://github.com/IHM-Ordenaris/SwiftPackageViewManager.git>
+
+## 👨🏻‍🏫 Example
 
 ### Swift
 
@@ -47,18 +49,18 @@ import ViewManagerSP
     
 Todos los componentes tienen propiedades @IBInspectables, las cuales se puede ir configurando en el interface builder dentro de la vista inspector de atributos.
 
-## Components
+## 🧩 Components
 Los tipos de componentes que contiene este paquete son:
 
 - [x] VMButtonsBait - Botones
 - [ ] ...
     
-## Documentation
+## 📚 Documentation
 Las configuraciones de los componentes se pueden encontrar en el siguiente link:
 
 * <https://docs.google.com/spreadsheets/d/1SujiHi-vd24x81BowRtquOSBaNnsxjFe6FqV9jjPHVg/edit?usp=sharing>
     
-## Author
+## 👨🏻‍💻 Author
 Ignacio Hernández, ignacio.hernandez@ordenaris.com
 
 ## 📄 License
