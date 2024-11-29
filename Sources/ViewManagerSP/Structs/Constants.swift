@@ -9,6 +9,8 @@ import UIKit
 struct Constants {
     static let borderWidthButton: CGFloat = 1
     static let cornerRadiusButton: CGFloat = 6
+    static let borderWidthTextField: CGFloat = 1
+    static let cornerRadiusTextField: CGFloat = 4
     
     struct Colors {
         struct Buttons {
@@ -61,6 +63,25 @@ struct Constants {
                 case activeTXT = "ButtonAux4ActiveTXT"
             }
         }
+        
+        struct TextField {
+            enum General: String {
+                // Activo
+                case titulo = "TextFieldGeneralTITLE"
+                case border = "TextFieldGeneralBORDER"
+                case text = "TextFieldGeneralTEXT"
+                case backGround = "TextFieldGeneralBG"
+            }
+            enum Error: String {
+                case border = "TextFieldErrorBORDER"
+                case support = "TextFieldErrorSUPPORT"
+            }
+            enum Password: String {
+                case show = "TextFieldPasswordSHOW"
+                case hide = "TextFieldPasswordHIDE"
+            }
+        }
+        
     }
     
     struct Fonts {
@@ -72,6 +93,36 @@ struct Constants {
         }
         static var gothamMedium: String {
             return "GothamRounded-Medium"
+        }
+    }
+    
+    struct CharactersValidTo {
+        static let phone: String = "0123456789"
+        static let pwd: String = ".@$!%*#?&0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    }
+    
+    struct Regex {
+        static let text: String = "^[-áéíóúÁÉÍÓÚñÑA.'-Za-z0-9 _]+$"
+        static let phone10: String = "^[0-9]{10}$"
+        static let mail: String = "^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$"
+        static let pwd: String = #"^(?=.*[.@$!%*#?&])(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d.@$!%*#?&]{8,20}$"#
+    }
+    
+    struct Messages {
+        struct Error {
+            struct Phone {
+                static let format: String = "El formato del número no es válido"
+            }
+            struct Mail {
+                static let format: String = "El correo electrónico no es válido"
+            }
+            struct Pwd {
+                static let format: String = "La contraseña no tiene un formato válido"
+                static let minCharacters: String = "La contraseña debe tener al menos 8 caracteres"
+                static let minNumber: String = "La contraseña debe tener al menos 1 número"
+                static let specialCharacters: String = "La contraseña debe tener al menos 1 carácter especial @!%*.#?$&"
+                static let mayus: String = "La contraseña debe tener al menos 1 letra en mayúscula"
+            }
         }
     }
 }

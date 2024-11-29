@@ -19,22 +19,22 @@ func getVersionColor(nombre:String) -> UIColor {
 
 @objc public extension UIColor {
     
-    //MARK: - COLORS BUTTON PRIMARIO
-    //BackGround
+    // MARK: - COLORS BUTTON PRIMARIO
+    // BackGround
     class func baitColor_buttonPrimarioActiveBG() -> UIColor{
         return getVersionColor(nombre: Constants.Colors.Buttons.Principal.activeBG.rawValue)
     }
     class func baitColor_buttonPrimarioInactiveBG() -> UIColor{
         return getVersionColor(nombre: Constants.Colors.Buttons.Principal.inactiveBG.rawValue)
     }
-    //Título
+    // Título
     class func baitColor_buttonPrimarioActiveTXT() -> UIColor{
         return getVersionColor(nombre: Constants.Colors.Buttons.Principal.activeTXT.rawValue)
     }
     class func baitColor_buttonPrimarioInactiveTXT() -> UIColor{
         return getVersionColor(nombre: Constants.Colors.Buttons.Principal.inactiveTXT.rawValue)
     }
-    //Borde
+    // Borde
     class func baitColor_buttonPrimarioActiveBORDER() -> UIColor{
         return getVersionColor(nombre: Constants.Colors.Buttons.Principal.activeBORDER.rawValue)
     }
@@ -42,22 +42,22 @@ func getVersionColor(nombre:String) -> UIColor {
         return getVersionColor(nombre: Constants.Colors.Buttons.Principal.inactiveBORDER.rawValue)
     }
     
-    //MARK: - COLORS BUTTON SECUNDARIO
-    //BackGround
+    // MARK: - COLORS BUTTON SECUNDARIO
+    // BackGround
     class func baitColor_buttonSecundarioActiveBG() -> UIColor{
         return getVersionColor(nombre: Constants.Colors.Buttons.Secundario.activeBG.rawValue)
     }
     class func baitColor_buttonSecundarioInactiveBG() -> UIColor{
         return getVersionColor(nombre: Constants.Colors.Buttons.Secundario.inactiveBG.rawValue)
     }
-    //Título
+    // Título
     class func baitColor_buttonSecundarioActiveTXT() -> UIColor{
         return getVersionColor(nombre: Constants.Colors.Buttons.Secundario.activeTXT.rawValue)
     }
     class func baitColor_buttonSecundarioInactiveTXT() -> UIColor{
         return getVersionColor(nombre: Constants.Colors.Buttons.Secundario.inactiveTXT.rawValue)
     }
-    //Borde
+    // Borde
     class func baitColor_buttonSecundarioActiveBORDER() -> UIColor{
         return getVersionColor(nombre: Constants.Colors.Buttons.Secundario.activeBORDER.rawValue)
     }
@@ -65,8 +65,8 @@ func getVersionColor(nombre:String) -> UIColor {
         return getVersionColor(nombre: Constants.Colors.Buttons.Secundario.inactiveBORDER.rawValue)
     }
     
-    //MARK: - COLORS BUTTON TEXTO
-    //Título
+    // MARK: - COLORS BUTTON TEXTO
+    // Título
     class func baitColor_buttonTextoBlackTXT() -> UIColor{
         return getVersionColor(nombre: Constants.Colors.Buttons.Texto.blackTXT.rawValue)
     }
@@ -77,117 +77,86 @@ func getVersionColor(nombre:String) -> UIColor {
         return getVersionColor(nombre: Constants.Colors.Buttons.Texto.underlineTXT.rawValue)
     }
     
-    //MARK: - COLORS BUTTON AUX1
-    //BackGround
+    // MARK: - COLORS BUTTON AUX1
+    // BackGround
     class func baitColor_buttonAux1ActiveBG() -> UIColor{
         return getVersionColor(nombre: Constants.Colors.Buttons.Aux1.activeBG.rawValue)
     }
-    //Título
+    // Título
     class func baitColor_buttonAux1ActiveTXT() -> UIColor{
         return getVersionColor(nombre: Constants.Colors.Buttons.Aux1.activeTXT.rawValue)
     }
     
-    //MARK: - COLORS BUTTON AUX2
-    //BackGround
+    // MARK: - COLORS BUTTON AUX2
+    // BackGround
     class func baitColor_buttonAux2ActiveBG() -> UIColor{
         return getVersionColor(nombre: Constants.Colors.Buttons.Aux2.activeBG.rawValue)
     }
-    //Título
+    // Título
     class func baitColor_buttonAux2ActiveTXT() -> UIColor{
         return getVersionColor(nombre: Constants.Colors.Buttons.Aux2.activeTXT.rawValue)
     }
     
-    //MARK: - COLORS BUTTON AUX3
-    //BackGround
+    // MARK: - COLORS BUTTON AUX3
+    // BackGround
     class func baitColor_buttonAux3ActiveBG() -> UIColor{
         return getVersionColor(nombre: Constants.Colors.Buttons.Aux3.activeBG.rawValue)
     }
-    //Título
+    // Título
     class func baitColor_buttonAux3ActiveTXT() -> UIColor{
         return getVersionColor(nombre: Constants.Colors.Buttons.Aux3.activeTXT.rawValue)
     }
     
-    //MARK: - COLORS BUTTON AUX4
-    //BackGround
+    // MARK: - COLORS BUTTON AUX4
+    // BackGround
     class func baitColor_buttonAux4ActiveBG() -> UIColor{
         return getVersionColor(nombre: Constants.Colors.Buttons.Aux4.activeBG.rawValue)
     }
-    //Título
+    // Título
     class func baitColor_buttonAux4ActiveTXT() -> UIColor{
         return getVersionColor(nombre: Constants.Colors.Buttons.Aux4.activeTXT.rawValue)
     }
     
     
-    //MARK: - COLORS TEXT FIELD
-    //BackGround
-//    @objc class func baitColor_TextFieldBG() -> UIColor {
-//        return getVersionColor(nombre: COLOR_TEXTFIELD_BG)
-//    }
-//    
+    // MARK: - COLORS TEXT FIELD GENERAL
+    // Título
+    class func baitColor_textFieldTITLE() -> UIColor{
+        return getVersionColor(nombre: Constants.Colors.TextField.General.titulo.rawValue)
+    }
+    // Borde
+    class func baitColor_textFieldBORDER() -> UIColor{
+        return getVersionColor(nombre: Constants.Colors.TextField.General.border.rawValue)
+    }
+    // Texto Principal
+    class func baitColor_TextFieldTEXT() -> UIColor {
+        return getVersionColor(nombre: Constants.Colors.TextField.General.text.rawValue)
+    }
+    // BackGround
+    class func baitColor_TextFieldBG() -> UIColor {
+        return getVersionColor(nombre: Constants.Colors.TextField.General.backGround.rawValue)
+    }
+    
+    // MARK: - COLORS TEXT FIELD ERROR
+    // Borde
+    class func baitColor_textFieldErrorBORDER() -> UIColor{
+        return getVersionColor(nombre: Constants.Colors.TextField.Error.border.rawValue)
+    }
+    // Texto Soporte
+    class func baitColor_TextFieldErrorSUPPORT() -> UIColor {
+        return getVersionColor(nombre: Constants.Colors.TextField.Error.support.rawValue)
+    }
+    
+    // MARK: - COLORS TEXT FIELD PASSWORD
+    class func baitColor_textFieldPasswordSHOW() -> UIColor{
+        return getVersionColor(nombre: Constants.Colors.TextField.Password.show.rawValue)
+    }
+    class func baitColor_textFieldPasswordHIDE() -> UIColor{
+        return getVersionColor(nombre: Constants.Colors.TextField.Password.hide.rawValue)
+    }
+    
 //    //Place Holder
 //    @objc class func baitColor_TextFieldPlaceholderDeshabilitado() -> UIColor {
 //        return getVersionColor(nombre: COLOR_TEXTFIELD_PLACEHOLDER_DESHABILITADO)
-//    }
-//    
-//    @objc class func baitColor_TextFieldPlaceholder() -> UIColor {
-//        return getVersionColor(nombre: COLOR_TEXTFIELD_PLACEHOLDER)
-//    }
-//    
-//    //Texto Soporte
-//    class func baitColor_TextFieldActivoTextoSecundario() -> UIColor {
-//        return getVersionColor(nombre: COLOR_TEXTFIELD_ACTIVO_TEXTO_SECUNDARIO)
-//    }
-//    class func baitColor_TextFieldInactivoTextoSecundario() -> UIColor {
-//        return getVersionColor(nombre: COLOR_TEXTFIELD_INACTIVO_TEXTO_SECUNDARIO)
-//    }
-//    class func baitColor_TextFieldFocalizadoTextoSecundario() -> UIColor {
-//        return getVersionColor(nombre: COLOR_TEXTFIELD_FOCALIZADO_TEXTO_SECUNDARIO)
-//    }
-//    class func baitColor_TextFieldErrorTextoSecundario() -> UIColor {
-//        return getVersionColor(nombre: COLOR_TEXTFIELD_ERROR_TEXTO_SECUNDARIO)
-//    }
-//    class func baitColor_TextFieldSuccessTextoSecundario() -> UIColor {
-//        return getVersionColor(nombre: COLOR_TEXTFIELD_SUCCESS_TEXTO_SECUNDARIO)
-//    }
-//    
-//    //Bordes
-//    class func baitColor_TextFieldInactivoBorde() -> UIColor {
-//        return getVersionColor(nombre: COLOR_TEXTFIELD_INACTIVO_BORDE)
-//    }
-//    class func baitColor_TextFieldActivoBorde() -> UIColor {
-//        return getVersionColor(nombre: COLOR_TEXTFIELD_ACTIVO_BORDE)
-//    }
-//    class func baitColor_TextFieldDeshabilitadoBorde() -> UIColor {
-//        return getVersionColor(nombre: COLOR_TEXTFIELD_DESHABILITADO_BORDE)
-//    }
-//    class func baitColor_TextFieldFocalizadoBorde() -> UIColor {
-//        return getVersionColor(nombre: COLOR_TEXTFIELD_FOCALIZADO_BORDE)
-//    }
-//    class func baitColor_TextFieldErrorBorde() -> UIColor {
-//        return getVersionColor(nombre: COLOR_TEXTFIELD_ERROR_BORDE)
-//    }
-//    class func baitColor_TextFieldSuccessBorde() -> UIColor {
-//        return getVersionColor(nombre: COLOR_TEXTFIELD_SUCCESS_BORDE)
-//    }
-//    
-//    //Texto Principal
-//    class func baitColor_TextFieldInactivoTexto() -> UIColor {
-//        return getVersionColor(nombre: COLOR_TEXTFIELD_INACTIVO_TEXTO)
-//    }
-//    class func baitColor_TextFieldActivoTexto() -> UIColor {
-//        return getVersionColor(nombre: COLOR_TEXTFIELD_ACTIVO_TEXTO)
-//    }
-//    class func baitColor_TextFieldDeshabilitadoTexto() -> UIColor {
-//        return getVersionColor(nombre: COLOR_TEXTFIELD_DESHABILITADO_TEXTO)
-//    }
-//    class func baitColor_TextFieldFocalizadoTexto() -> UIColor {
-//        return getVersionColor(nombre: COLOR_TEXTFIELD_FOCALIZADO_TEXTO)
-//    }
-//    class func baitColor_TextFieldErrorTexto() -> UIColor {
-//        return getVersionColor(nombre: COLOR_TEXTFIELD_ERROR_TEXTO)
-//    }
-//    class func baitColor_TextFieldSuccessTexto() -> UIColor {
-//        return getVersionColor(nombre: COLOR_TEXTFIELD_SUCCESS_TEXTO)
 //    }
     
 }

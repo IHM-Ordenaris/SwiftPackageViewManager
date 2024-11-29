@@ -66,7 +66,7 @@ public enum typeButtonEnum: Int {
             case .buttonSecundario:
                 return UIColor.baitColor_buttonSecundarioActiveTXT()
             case .buttonTexto:
-                return UIColor.blue
+                return UIColor.baitColor_buttonTextoBlueTXT()
             case .buttonAux1:
                 return UIColor.baitColor_buttonAux1ActiveTXT()
             case .buttonAux2:
@@ -83,7 +83,7 @@ public enum typeButtonEnum: Int {
             case .buttonSecundario:
                 return UIColor.baitColor_buttonSecundarioInactiveTXT()
             case .buttonTexto:
-                return UIColor.blue
+                return UIColor.baitColor_buttonTextoBlueTXT()
             default:
                 return UIColor.black
             }

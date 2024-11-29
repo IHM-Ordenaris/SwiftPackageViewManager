@@ -8,8 +8,6 @@
 
 View Manager es un paquete que facilita la implementación de los componentes al diseñar las aplicaciones iOS
 
-![](ButtosSP.gif)
-
 ## 🛠️ Requirements
 * Xcode 8 o posterior
 * iOS v14.0 o posterior
@@ -53,8 +51,15 @@ Todos los componentes tienen propiedades @IBInspectables, las cuales se puede ir
 Los tipos de componentes que contiene este paquete son:
 
 - [x] VMButtonsBait - Botones
+- [x] VMTextFieldBait - TextFields
 - [ ] ...
     
+### Buttons
+![](ButtosSP.gif)
+
+### TextFields
+![](TextFieldsSP.gif)
+
 ## 📚 Documentation
 Las configuraciones de los componentes se pueden encontrar en el siguiente link:
 
