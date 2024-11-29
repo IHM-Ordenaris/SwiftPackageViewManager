@@ -42,7 +42,8 @@ Importar el paquete a la clase donde se vayan a referenciar los elementos visual
 ``` swift
 import ViewManagerSP
     
-@IBOutlet weak var buttonExample: VMButtonsBait!
+@IBOutlet weak var buttonExample: VMButtonsBait!  //UIButton
+@IBOutlet weak var txtFieldPhone: VMTextFieldBait!  //UIView
 ``` 
     
 Todos los componentes tienen propiedades @IBInspectables, las cuales se puede ir configurando en el interface builder dentro de la vista inspector de atributos.

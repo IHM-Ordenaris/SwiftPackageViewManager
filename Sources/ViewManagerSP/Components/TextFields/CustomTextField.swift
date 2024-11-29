@@ -63,6 +63,7 @@ public class CustomTextField: UITextField {
         self.clipsToBounds = true
         self.backgroundColor = UIColor.clear
         self.font = UIFont(name: Constants.Fonts.gothamRegular, size: 12.0) ?? .systemFont(ofSize: 12)
+        self.isUserInteractionEnabled = true
     }
     
     // MARK: - Variables configurables desde VMTextFieldBait
@@ -99,6 +100,12 @@ public class CustomTextField: UITextField {
             self.tintColor = enumValue.getColorPrompt()!
             self.textColor = enumValue.getColorTexto()!
             stateTxt = enumValue
+            
+            if enumValue == .disable {
+                self.isUserInteractionEnabled = false
+            } else {
+                self.isUserInteractionEnabled = true
+            }
 //            setUpView()
         }
     }

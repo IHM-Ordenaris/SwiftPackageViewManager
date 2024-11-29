@@ -146,6 +146,14 @@ public class VMTextFieldBait: UIView, @preconcurrency CustomTextFieldDelegate {
         }
     }
     
+    @IBInspectable public var text: String = "" {
+        didSet {
+            if text != "" {
+                self.txtFieldCustom.text = text
+            }
+        }
+    }
+    
     @IBInspectable public var textSoporte: String = "" {
         didSet {
             self.lblSoporte5.text = ""
@@ -205,6 +213,8 @@ public class VMTextFieldBait: UIView, @preconcurrency CustomTextFieldDelegate {
     }
     
     public func TxtCustomDidBeginEditing(_ field: CustomTextField) {
+        self.estadoCampo = EnumStateTxtBait.focus.rawValue
+        
         var tipo: String = ""
         switch  field.typeField {
         case EnumTypeTxtBait.text.rawValue:
