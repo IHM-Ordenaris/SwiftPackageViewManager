@@ -28,6 +28,7 @@ public class CustomTextField: UITextField {
     
     private var viewImg: UIView!
     private var imageLeft: UIImageView!
+    private var imageRight: UIImageView!
     private var labelRight: UILabel!
     private var plholder: String = ""
     
@@ -133,9 +134,12 @@ public class CustomTextField: UITextField {
             self.autocorrectionType = .no
             self.keyboardType = .emailAddress
             self.createLeftView()
-        case .codVal?:
+        case .list?:
             self.isSecureTextEntry = false
-            self.keyboardType = .numberPad
+            self.autocorrectionType = .no
+            self.keyboardType = .asciiCapable
+            self.createLeftViewExtended()
+            self.createRigthView()
         default:
             print("Custom - Tipo textField no seteado...")
         }
@@ -250,6 +254,20 @@ public class CustomTextField: UITextField {
             self.viewImg.addSubview(self.labelRight)
             self.rightView = self.viewImg
             self.rightViewMode = .always
+        case .list?:
+            let widthI = (self.viewImg.frame.width/2)-5
+            let heightI = (self.viewImg.frame.height/2)-5
+            let sizeI = 10
+            
+            let initPoint: CGPoint = CGPoint(x: widthI, y: heightI)
+            self.imageRight = UIImageView(frame: CGRect(origin: initPoint, size: CGSize(width: sizeI, height: sizeI)))
+            self.imageRight.contentMode = .scaleAspectFit
+            self.imageRight.image = self.typeTxt.getImageRight()
+            self.imageRight.tintColor = UIColor.baitColor_TextFieldTEXT()
+            
+            self.viewImg.addSubview(self.imageRight)
+            self.rightView = self.viewImg
+            self.rightViewMode = .always
         default:
             print("Custom - Tipo TextField sin imagen a la derecha...")
         }
@@ -289,7 +307,7 @@ extension CustomTextField: UITextFieldDelegate {
         }
 //        field.placeholder = ""
         field.contentVerticalAlignment = .center
-        delegateCustom.TxtCustomDidBeginEditing(field)
+        self.delegateCustom.TxtCustomDidBeginEditing(field)
     }
     
     public func textFieldDidEndEditing(_ textField: UITextField) {
@@ -297,25 +315,25 @@ extension CustomTextField: UITextFieldDelegate {
         if field.text == ""{
             field.contentVerticalAlignment = .center
         }
-        delegateCustom.TxtCustomDidEndEditing(field)
+        self.delegateCustom.TxtCustomDidEndEditing(field)
     }
     
     public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         let field = textField as! CustomTextField
         field.resignFirstResponder()
-        delegateCustom.TxtCustomShouldReturn(field)
+        self.delegateCustom.TxtCustomShouldReturn(field)
         return true
     }
     
     public func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         let field = textField as! CustomTextField
-        return delegateCustom.TxtCustomShouldBeginEditing(field)
+        return self.delegateCustom.TxtCustomShouldBeginEditing(field)
     }
     
     public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let field = textField as! CustomTextField
         let newLength = textField.text!.count + string.count - range.length
-        delegateCustom.TxtCustomChangeCharacter(field, shouldChangeCharactersIn: range, replacementString: string)
+        self.delegateCustom.TxtCustomChangeCharacter(field, shouldChangeCharactersIn: range, replacementString: string)
         switch self.typeTxt {
         case .phone?:
             let characterSet = NSCharacterSet.init(charactersIn: Constants.CharactersValidTo.phone).inverted

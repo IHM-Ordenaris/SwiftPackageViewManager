@@ -82,7 +82,7 @@ public enum EnumTypeTxtBait: Int {
     case phone      = 2
     case psswrd     = 3
     case email      = 4
-    case codVal     = 5
+    case list       = 5
     
     func isValid(_ text: String) -> Bool? {
         switch self {
@@ -94,8 +94,8 @@ public enum EnumTypeTxtBait: Int {
             return isValidPwd(pwd: text)
         case .email:
             return isValidEmail(email: text)
-        case .codVal:
-            return isNumber(number:text)
+        case .list:
+            return isValidList(str: text)
         }
     }
     
@@ -122,6 +122,10 @@ public enum EnumTypeTxtBait: Int {
         let regex = Constants.Regex.pwd
         let predicate = NSPredicate(format:"SELF MATCHES %@", regex)
         return predicate.evaluate(with: pwd)
+    }
+    
+    func isValidList(str: String) -> Bool{
+        return true
     }
     
     func isValidName(name: String) -> Bool {
@@ -151,6 +155,17 @@ public enum EnumTypeTxtBait: Int {
         }
     }
     
+    /// Obtiene e icono , dependiendo del tipo de textView seleccionado
+    /// - Returns: - Retorna un UIImage
+    func getImageRight() -> UIImage? {
+        switch self {
+        case .list:
+            return UIImage.getAsset(name: "vm_icon_down")
+        default:
+            return UIImage()
+        }
+    }
+    
     func getTitleDefault() -> String? {
         switch self {
         case .text:
@@ -161,8 +176,8 @@ public enum EnumTypeTxtBait: Int {
             return "Tipo 3: Campo Password"
         case .email:
             return "Tipo 4: Campo de Email"
-        case .codVal:
-            return "Tipo 5: Campo de Código Validación"
+        case .list:
+            return "Tipo 5: Campo de Lista"
         }
     }
     

@@ -15,11 +15,14 @@ import UIKit
     @objc optional func VMTxtMiBaitShouldReturnEx(_ field: VMTextFieldBait, txtField: CustomTextField)
     @objc optional func VMTxtMiBaitShouldBeginEditingEx(_ field: VMTextFieldBait, txtField: CustomTextField) -> Bool
     @objc optional func VMTxtMiBaitTapImageHelpEx(_ field: VMTextFieldBait, txtField: CustomTextField)
+    
+    // Delegados para TextField Lista
+    @objc optional func VMTxtMiBaitWillDisplayMenuEx(_ field: VMTextFieldBait, txtField: CustomTextField)
+    @objc optional func VMTxtMiBaitDidEndSelecOptiontEx(_ field: VMTextFieldBait, txtField: CustomTextField, index: Int)
 }
 
 // MARK: Public CLASS VMTextFields
-public class VMTextFieldBait: UIView, @preconcurrency CustomTextFieldDelegate {
-    
+public class VMTextFieldBait: UIView, @preconcurrency CustomTextFieldDelegate, @preconcurrency CustomButtonListDelegate {
     // MARK: - Variables
     @objc public var delegateExterno: VMTextFieldDelegateExterno?
     
@@ -32,6 +35,7 @@ public class VMTextFieldBait: UIView, @preconcurrency CustomTextFieldDelegate {
     @IBOutlet weak var imgInfo: UIImageView!
     @IBOutlet weak var txtFieldCustom: CustomTextField!
     @IBOutlet weak var lblSoporte5: UILabel!
+    @IBOutlet weak var btnList: CustomButtonList!
     
     var auxPlaceholder: String = ""
     
@@ -58,6 +62,7 @@ public class VMTextFieldBait: UIView, @preconcurrency CustomTextFieldDelegate {
         self.imgInfo.isUserInteractionEnabled = true
         
         self.txtFieldCustom.delegateCustom = self
+        self.btnList.delegateCustom = self
         
         self.lblSoporte5.backgroundColor = UIColor.clear
         self.lblSoporte5.text = ""
@@ -99,8 +104,14 @@ public class VMTextFieldBait: UIView, @preconcurrency CustomTextFieldDelegate {
                 return
             }
             self.txtFieldCustom.typeField = enumValue.rawValue
-            if self.lblTitulo5.text == "" {
+            if self.lblTitulo5.text == "" && enumValue != .list {
                 self.lblTitulo5.text = enumValue.getTitleDefault()
+            }
+            switch enumValue {
+            case .list:
+                self.btnList.isHidden = false
+            default:
+                self.btnList.isHidden = true
             }
         }
     }
@@ -172,6 +183,12 @@ public class VMTextFieldBait: UIView, @preconcurrency CustomTextFieldDelegate {
         }
     }
     
+    public var optionsMenu: [String] = [] {
+        didSet {
+            self.btnList.createMenu(options: optionsMenu)
+        }
+    }
+    
     // MARK: - VMTextFieldsDelegate
     public func TxtCustomDidEndEditing(_ field: CustomTextField) {
         print("Delegado DidEndEditing...")
@@ -226,7 +243,7 @@ public class VMTextFieldBait: UIView, @preconcurrency CustomTextFieldDelegate {
         case EnumTypeTxtBait.email.rawValue:
             tipo = "Campo Email"
         default:
-            tipo = "Campo Código"
+            tipo = "Campo Lista"
         }
         
         print("\nDelegado DidBeginEditing \(tipo)")
@@ -257,5 +274,16 @@ public class VMTextFieldBait: UIView, @preconcurrency CustomTextFieldDelegate {
     
     public func TxtCustomShouldBeginEditing(_ field: CustomTextField) -> Bool {
         return true
+    }
+    
+    // MARK: - CustomButtonListDelegate
+    func BtnListWillDisplayMenu(_ btn: CustomButtonList) {
+        self.delegateExterno?.VMTxtMiBaitWillDisplayMenuEx?(self, txtField: self.txtFieldCustom)
+    }
+    
+    func BtnListDidEndEditing(_ btn: CustomButtonList, text: String, index: Int) {
+        self.txtFieldCustom.text = text
+        delegateExterno?.VMTxtMiBaitDidEndSelecOptiontEx?(self, txtField: self.txtFieldCustom, index: index)
+        delegateExterno?.VMTxtMiBaitDidEndEditingEx(self, txtField: self.txtFieldCustom)
     }
 }

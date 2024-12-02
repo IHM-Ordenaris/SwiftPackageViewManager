@@ -59,7 +59,7 @@ Los tipos de componentes que contiene este paquete son:
 ![](ButtosSP.gif)
 
 ### TextFields
-![](TextFieldsSP.gif)
+![](TextFields01SP.gif)
 
 ## 📚 Documentation
 Las configuraciones de los componentes se pueden encontrar en el siguiente link:
