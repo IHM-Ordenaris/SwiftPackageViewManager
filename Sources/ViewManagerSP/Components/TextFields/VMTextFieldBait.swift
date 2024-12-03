@@ -260,11 +260,7 @@ public class VMTextFieldBait: UIView, @preconcurrency CustomTextFieldDelegate, @
             return
         }
         
-        if enumValue == EnumStateTxtBait.error {
-            field.stateField = EnumStateTxtBait.enable.rawValue
-            self.lblSoporte5.text = ""
-        }
-        
+        self.lblSoporte5.text = ""
         auxPlaceholder = self.placeHolderCampo
         self.placeHolderCampo = ""
         delegateExterno?.VMTxtMiBaitDidBeginEditingEx(self, txtField: field)
