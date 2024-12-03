@@ -51,8 +51,9 @@ Todos los componentes tienen propiedades @IBInspectables, las cuales se puede ir
 ## 🧩 Components
 Los tipos de componentes que contiene este paquete son:
 
-- [x] VMButtonsBait - Botones
-- [x] VMTextFieldBait - TextFields
+- [x] VMButtonsBait     - Botones
+- [x] VMTextFieldBait   - TextFields
+- [x] VMCheckBoxBait    - CheckBox
 - [ ] ...
     
 ### Buttons
@@ -60,6 +61,9 @@ Los tipos de componentes que contiene este paquete son:
 
 ### TextFields
 ![](TextFields01SP.gif)
+
+### CheckBox
+![](CheckBoxSP.gif)
 
 ## 📚 Documentation
 Las configuraciones de los componentes se pueden encontrar en el siguiente link:

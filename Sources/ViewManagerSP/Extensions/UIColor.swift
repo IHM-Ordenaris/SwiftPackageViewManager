@@ -159,4 +159,20 @@ func getVersionColor(nombre:String) -> UIColor {
 //        return getVersionColor(nombre: COLOR_TEXTFIELD_PLACEHOLDER_DESHABILITADO)
 //    }
     
+    // MARK: - COLORS CHECK-BOX
+    // BackGround
+    class func baitColor_checkboxBG() -> UIColor{
+        return getVersionColor(nombre: Constants.Colors.Checkbox.General.backGround.rawValue)
+    }
+    // Borde
+    class func baitColor_checkboxSelectBORDER() -> UIColor{
+        return getVersionColor(nombre: Constants.Colors.Checkbox.General.borderSelect.rawValue)
+    }
+    class func baitColor_checkboxNoSelectBORDER() -> UIColor{
+        return getVersionColor(nombre: Constants.Colors.Checkbox.General.borderNoSelect.rawValue)
+    }
+    // Select
+    class func baitColor_checkboxSELECT() -> UIColor{
+        return getVersionColor(nombre: Constants.Colors.Checkbox.General.select.rawValue)
+    }
 }

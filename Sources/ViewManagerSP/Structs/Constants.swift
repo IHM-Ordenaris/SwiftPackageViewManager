@@ -11,6 +11,8 @@ struct Constants {
     static let cornerRadiusButton: CGFloat = 6
     static let borderWidthTextField: CGFloat = 1
     static let cornerRadiusTextField: CGFloat = 4
+    static let borderWidthCheckBox: CGFloat = 1
+    static let cornerRadiusCheckBox: CGFloat = 5
     
     struct Colors {
         struct Buttons {
@@ -79,6 +81,16 @@ struct Constants {
             enum Password: String {
                 case show = "TextFieldPasswordSHOW"
                 case hide = "TextFieldPasswordHIDE"
+            }
+        }
+        
+        struct Checkbox {
+            enum General: String {
+                case backGround = "CheckBoxBG"
+                case borderSelect = "CheckBoxSelectBORDER"
+                case borderNoSelect = "CheckBoxUnselectBORDER"
+                case select = "CheckBoxSELECT"
+                
             }
         }
         

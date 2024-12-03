@@ -140,10 +140,13 @@ public class VMTextFieldBait: UIView, @preconcurrency CustomTextFieldDelegate, @
         }
     }
     
-    @IBInspectable public var textTitulo: String = "" {
-        didSet {
-            if textTitulo != "" {
-                self.lblTitulo5.text = textTitulo
+    @IBInspectable public var textTitulo: String {
+        get {
+            self.lblTitulo5.text!
+        }
+        set {
+            if newValue != "" {
+                self.lblTitulo5.text = newValue
             }
         }
     }
@@ -157,19 +160,24 @@ public class VMTextFieldBait: UIView, @preconcurrency CustomTextFieldDelegate, @
         }
     }
     
-    @IBInspectable public var text: String = "" {
-        didSet {
-            if text != "" {
-                self.txtFieldCustom.text = text
+    @IBInspectable public var text: String {
+        get {
+            self.txtFieldCustom.text!
+        }
+        set {
+            if newValue != "" {
+                self.txtFieldCustom.text = newValue
             }
         }
     }
     
-    @IBInspectable public var textSoporte: String = "" {
-        didSet {
-            self.lblSoporte5.text = ""
-            if textSoporte != "" {
-                self.lblSoporte5.text = textSoporte
+    @IBInspectable public var textSoporte: String {
+        get {
+            self.lblSoporte5.text!
+        }
+        set {
+            if newValue != "" {
+                self.lblSoporte5.text = newValue
             }
         }
     }
