@@ -20,7 +20,7 @@
                 <outlet property="imgInfo" destination="IDT-c5-bg1" id="ZEe-0D-XaA"/>
                 <outlet property="lblSoporte5" destination="KA8-uH-Mcd" id="1Xw-XR-628"/>
                 <outlet property="lblTitulo5" destination="PYG-nw-hPg" id="cq6-HR-2yz"/>
-                <outlet property="txtFieldCustom" destination="Qmg-PG-tdl" id="Qsh-KY-4iR"/>
+                <outlet property="txtField" destination="Qmg-PG-tdl" id="oy0-PA-An8"/>
                 <outlet property="viewBGB5" destination="iN0-l3-epB" id="FrX-dw-prT"/>
             </connections>
         </placeholder>

@@ -33,7 +33,7 @@ public class VMTextFieldBait: UIView, @preconcurrency CustomTextFieldDelegate, @
     @IBOutlet weak var viewBGB5: UIView!
     @IBOutlet weak var lblTitulo5: UILabel!
     @IBOutlet weak var imgInfo: UIImageView!
-    @IBOutlet weak var txtFieldCustom: CustomTextField!
+    @IBOutlet weak var txtField: CustomTextField!
     @IBOutlet weak var lblSoporte5: UILabel!
     @IBOutlet weak var btnList: CustomButtonList!
     
@@ -61,7 +61,7 @@ public class VMTextFieldBait: UIView, @preconcurrency CustomTextFieldDelegate, @
         self.imgInfo.tintColor = UIColor.baitColor_TextFieldTEXT()
         self.imgInfo.isUserInteractionEnabled = true
         
-        self.txtFieldCustom.delegateCustom = self
+        self.txtField.delegateCustom = self
         self.btnList.delegateCustom = self
         
         self.lblSoporte5.backgroundColor = UIColor.clear
@@ -70,7 +70,7 @@ public class VMTextFieldBait: UIView, @preconcurrency CustomTextFieldDelegate, @
     }
     
     @objc open func tapImageHelp(tapGestureRecognizer: UITapGestureRecognizer) {
-        delegateExterno?.VMTxtMiBaitTapImageHelpEx?(self, txtField: self.txtFieldCustom)
+        delegateExterno?.VMTxtMiBaitTapImageHelpEx?(self, txtField: self.txtField)
     }
     
     public func loadViewFromNib() -> UIView {
@@ -96,6 +96,14 @@ public class VMTextFieldBait: UIView, @preconcurrency CustomTextFieldDelegate, @
         self.layoutIfNeeded()
     }
     
+    override public func resignFirstResponder() -> Bool {
+        return self.txtField.resignFirstResponder()
+    }
+    
+    override public func becomeFirstResponder() -> Bool {
+        return self.txtField.becomeFirstResponder()
+    }
+    
     // MARK: - IBinspectables
     @IBInspectable public var tipoCampo: Int = 1 {
         didSet {
@@ -103,7 +111,7 @@ public class VMTextFieldBait: UIView, @preconcurrency CustomTextFieldDelegate, @
                 print("VMTextField - Tipo Text field no soportado....")
                 return
             }
-            self.txtFieldCustom.typeField = enumValue.rawValue
+            self.txtField.typeField = enumValue.rawValue
             if self.lblTitulo5.text == "" && enumValue != .list {
                 self.lblTitulo5.text = enumValue.getTitleDefault()
             }
@@ -123,20 +131,24 @@ public class VMTextFieldBait: UIView, @preconcurrency CustomTextFieldDelegate, @
                 return
             }
             VMTextFieldBait.stateFieldStatic = estadoCampo
-            self.txtFieldCustom.stateField = enumValue.rawValue
+            self.txtField.stateField = enumValue.rawValue
             
             self.lblTitulo5.textColor = enumValue.getColorTitle()!
             self.lblSoporte5.textColor = enumValue.getColorTextoSoporte()!
+            
+            if enumValue != .error {
+                self.lblSoporte5.text = ""
+            }
         }
     }
     
     @IBInspectable public var placeHolderCampo: String = "" {
         didSet {
             var attribute = NSAttributedString(string: placeHolderCampo, attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
-            if self.txtFieldCustom.stateField != EnumStateTxtBait.disable.rawValue {
+            if self.txtField.stateField != EnumStateTxtBait.disable.rawValue {
                 attribute = NSAttributedString(string: placeHolderCampo, attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
             }
-            self.txtFieldCustom.attributedPlaceholder = attribute
+            self.txtField.attributedPlaceholder = attribute
         }
     }
     
@@ -162,11 +174,11 @@ public class VMTextFieldBait: UIView, @preconcurrency CustomTextFieldDelegate, @
     
     @IBInspectable public var text: String {
         get {
-            self.txtFieldCustom.text!
+            self.txtField.text!
         }
         set {
             if newValue != "" {
-                self.txtFieldCustom.text = newValue
+                self.txtField.text = newValue
             }
         }
     }
@@ -282,12 +294,12 @@ public class VMTextFieldBait: UIView, @preconcurrency CustomTextFieldDelegate, @
     
     // MARK: - CustomButtonListDelegate
     func BtnListWillDisplayMenu(_ btn: CustomButtonList) {
-        self.delegateExterno?.VMTxtMiBaitWillDisplayMenuEx?(self, txtField: self.txtFieldCustom)
+        self.delegateExterno?.VMTxtMiBaitWillDisplayMenuEx?(self, txtField: self.txtField)
     }
     
     func BtnListDidEndEditing(_ btn: CustomButtonList, text: String, index: Int) {
-        self.txtFieldCustom.text = text
-        delegateExterno?.VMTxtMiBaitDidEndSelecOptiontEx?(self, txtField: self.txtFieldCustom, index: index)
-        delegateExterno?.VMTxtMiBaitDidEndEditingEx(self, txtField: self.txtFieldCustom)
+        self.txtField.text = text
+        delegateExterno?.VMTxtMiBaitDidEndSelecOptiontEx?(self, txtField: self.txtField, index: index)
+        delegateExterno?.VMTxtMiBaitDidEndEditingEx(self, txtField: self.txtField)
     }
 }
