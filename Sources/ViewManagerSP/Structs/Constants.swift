@@ -122,6 +122,9 @@ struct Constants {
     
     struct Messages {
         struct Error {
+            struct Text {
+                static let format: String = "El formato del campo no es válido"
+            }
             struct Phone {
                 static let format: String = "El formato del número no es válido"
             }

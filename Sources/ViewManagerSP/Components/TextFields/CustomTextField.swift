@@ -176,7 +176,17 @@ public class CustomTextField: UITextField {
     }
     
     @objc internal func isValid() -> Bool {
-        return self.typeTxt.isValid(self.text!)!
+        let valid = self.typeTxt.isValid(self.text!)!
+        if valid {
+            let textNoSpaces = self.text!.replacingOccurrences(of: " ", with: "")
+            if textNoSpaces.count == 0 {
+                return false
+            } else {
+                return valid
+            }
+        } else {
+            return valid
+        }
     }
     
     private func createLeftView() {
@@ -335,6 +345,16 @@ extension CustomTextField: UITextFieldDelegate {
         let newLength = textField.text!.count + string.count - range.length
         self.delegateCustom.TxtCustomChangeCharacter(field, shouldChangeCharactersIn: range, replacementString: string)
         switch self.typeTxt {
+        case .text?:
+            // Obtén el texto actualizado si se aplica el cambio
+            let currentText = textField.text ?? ""
+            let updatedText = (currentText as NSString).replacingCharacters(in: range, with: string)
+            // Permitir un solo espacio
+            if updatedText.contains("  ") {
+                return false
+            }
+            // Permitir cualquier otra entrada
+            return true
         case .phone?:
             let characterSet = NSCharacterSet.init(charactersIn: Constants.CharactersValidTo.phone).inverted
             let filtered = string.components(separatedBy: characterSet as CharacterSet).joined(separator: "")

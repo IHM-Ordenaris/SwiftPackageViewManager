@@ -221,6 +221,8 @@ public class VMTextFieldBait: UIView, @preconcurrency CustomTextFieldDelegate, @
             self.estadoCampo = EnumStateTxtBait.error.rawValue
             
             switch self.tipoCampo {
+            case EnumTypeTxtBait.text.rawValue:
+                self.lblSoporte5.text = Constants.Messages.Error.Text.format
             case EnumTypeTxtBait.phone.rawValue:
                 self.lblSoporte5.text = Constants.Messages.Error.Phone.format
             case EnumTypeTxtBait.email.rawValue:
