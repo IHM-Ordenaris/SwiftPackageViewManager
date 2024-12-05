@@ -273,7 +273,7 @@ public class CustomTextField: UITextField {
         }
     }
     
-    @objc open func tapResponse(tapGestureRecognizer: UITapGestureRecognizer) {
+    @objc internal func tapResponse(tapGestureRecognizer: UITapGestureRecognizer) {
         switch self.typeTxt {
         case .psswrd?:
             if self.isSecureTextEntry {

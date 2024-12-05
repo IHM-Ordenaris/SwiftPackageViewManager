@@ -33,7 +33,7 @@ public class VMTextFieldBait: UIView, @preconcurrency CustomTextFieldDelegate, @
     @IBOutlet weak var viewBGB5: UIView!
     @IBOutlet weak var lblTitulo5: UILabel!
     @IBOutlet weak var imgInfo: UIImageView!
-    @IBOutlet weak var txtField: CustomTextField!
+    @IBOutlet weak public var txtField: CustomTextField!
     @IBOutlet weak var lblSoporte5: UILabel!
     @IBOutlet weak var btnList: CustomButtonList!
     
