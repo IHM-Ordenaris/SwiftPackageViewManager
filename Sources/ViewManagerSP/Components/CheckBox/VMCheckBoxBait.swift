@@ -14,7 +14,7 @@ import UIKit
 public class VMCheckBoxBait: UIView {
     // MARK: - Variables
     @objc public var delegateExterno: VMCheckBoxDelegate?
-    private var isSelect: Bool = false
+    private var selected: Bool = false
     private var colorBorder: UIColor = UIColor.baitColor_checkboxNoSelectBORDER()
     
     // MARK: - IBOutlets
@@ -79,17 +79,28 @@ public class VMCheckBoxBait: UIView {
         return view
     }
     
+    @IBInspectable
+    public var isSelect: Bool {
+        get {
+            return self.selected
+        }
+        set {
+            self.selected = !newValue
+            self.tapView(tapGestureRecognizer: UITapGestureRecognizer())
+        }
+    }
+    
     @objc private func tapView(tapGestureRecognizer: UITapGestureRecognizer) {
-        if !self.isSelect {
-            self.isSelect = true
+        if !self.selected {
+            self.selected = true
             self.colorBorder = UIColor.baitColor_checkboxSelectBORDER()
             self.viewCircle.isHidden = false
         } else {
-            self.isSelect = false
+            self.selected = false
             self.colorBorder = UIColor.baitColor_checkboxNoSelectBORDER()
             self.viewCircle.isHidden = true
         }
         self.viewBorder.layer.borderColor = self.colorBorder.cgColor
-        delegateExterno?.VMCheckBoxBaitWillSelectOption(self, isSelect: self.isSelect)
+        delegateExterno?.VMCheckBoxBaitWillSelectOption(self, isSelect: self.selected)
     }
 }
