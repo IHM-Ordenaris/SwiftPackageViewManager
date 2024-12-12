@@ -111,6 +111,25 @@ public class CustomTextField: UITextField {
         }
     }
     
+    internal var showIcon: Bool = true {
+        didSet {
+            if !showIcon {
+                switch self.typeTxt {
+                case .phone, .email:
+                    self.viewImg.isHidden = true
+                    self.leftView = nil
+                    self.createLeftViewExtended()
+                case .psswrd, .list:
+                    self.viewImg.isHidden = true
+                    self.rightView = nil
+                    self.createRightViewExtended()
+                default:
+                    print("⚠️ Este campo no oculta ningun ícono")
+                }
+            }
+        }
+    }
+    
     // MARK: - Functions
     private func setUpView() {
         switch self.typeTxt {

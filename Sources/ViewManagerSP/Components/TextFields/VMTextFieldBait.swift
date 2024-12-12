@@ -172,6 +172,15 @@ public class VMTextFieldBait: UIView, @preconcurrency CustomTextFieldDelegate, @
         }
     }
     
+    @IBInspectable public var showIcon: Bool {
+        get {
+            self.txtField.showIcon
+        }
+        set {
+            self.txtField.showIcon = newValue
+        }
+    }
+    
     @IBInspectable public var text: String {
         get {
             self.txtField.text!
