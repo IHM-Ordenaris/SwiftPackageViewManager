@@ -159,6 +159,10 @@ public class CustomTextField: UITextField {
             self.keyboardType = .asciiCapable
             self.createLeftViewExtended()
             self.createRigthView()
+        case .number?:
+            self.isSecureTextEntry = false
+            self.keyboardType = .numberPad
+            self.createLeftViewExtended()
         default:
             print("Custom - Tipo textField no seteado...")
         }
@@ -393,6 +397,10 @@ extension CustomTextField: UITextFieldDelegate {
 //        case .psswrdLogin?:
 //            let newLength = textField.text!.count + string.count - range.length
 //            return (newLength >= limitCharacters) ? false : true
+        case .number?:
+            let characterSet = NSCharacterSet.init(charactersIn: Constants.CharactersValidTo.phone).inverted
+            let filtered = string.components(separatedBy: characterSet as CharacterSet).joined(separator: "")
+            return string == filtered ? true : false
         default:
             print("Custom - TextField sin restricción de longitud...")
             return true

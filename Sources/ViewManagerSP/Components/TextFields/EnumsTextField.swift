@@ -83,6 +83,7 @@ public enum EnumTypeTxtBait: Int {
     case psswrd     = 3
     case email      = 4
     case list       = 5
+    case number     = 6
     
     func isValid(_ text: String) -> Bool? {
         switch self {
@@ -96,6 +97,8 @@ public enum EnumTypeTxtBait: Int {
             return isValidEmail(email: text)
         case .list:
             return isValidList(str: text)
+        case .number:
+            return isValidNumber(number: text)
         }
     }
     
@@ -135,7 +138,7 @@ public enum EnumTypeTxtBait: Int {
         return  true
     }
     
-    func isNumber(number:String)->Bool{
+    func isValidNumber(number:String)->Bool{
 //        let regex = ConstantsTextFields.RegexNumber
 //        let predicate = NSPredicate(format:"SELF MATCHES %@", regex)
 //        return predicate.evaluate(with: number)
@@ -178,6 +181,8 @@ public enum EnumTypeTxtBait: Int {
             return "Tipo 4: Campo de Email"
         case .list:
             return "Tipo 5: Campo de Lista"
+        case .number:
+            return "Tipo 6: Campo Number"
         }
     }
     

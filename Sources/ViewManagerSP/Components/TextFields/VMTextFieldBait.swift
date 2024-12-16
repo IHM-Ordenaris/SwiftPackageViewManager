@@ -273,6 +273,8 @@ public class VMTextFieldBait: UIView, @preconcurrency CustomTextFieldDelegate, @
             tipo = "Campo Password"
         case EnumTypeTxtBait.email.rawValue:
             tipo = "Campo Email"
+        case EnumTypeTxtBait.number.rawValue:
+            tipo = "Campo Número"
         default:
             tipo = "Campo Lista"
         }
