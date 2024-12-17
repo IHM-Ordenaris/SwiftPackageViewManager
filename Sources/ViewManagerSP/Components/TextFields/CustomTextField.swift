@@ -24,7 +24,7 @@ public class CustomTextField: UITextField {
     // MARK: - Variables TextField
     internal var typeTxt: EnumTypeTxtBait!
     internal var stateTxt:EnumStateTxtBait!
-    internal var delegateCustom: CustomTextFieldDelegate!
+    internal weak var delegateCustom: CustomTextFieldDelegate!
     
     private var viewImg: UIView!
     private var imageLeft: UIImageView!
