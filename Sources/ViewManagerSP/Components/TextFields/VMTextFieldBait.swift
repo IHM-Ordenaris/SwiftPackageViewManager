@@ -197,9 +197,7 @@ public class VMTextFieldBait: UIView, @preconcurrency CustomTextFieldDelegate, @
             self.lblSoporte5.text!
         }
         set {
-            if newValue != "" {
-                self.lblSoporte5.text = newValue
-            }
+            self.lblSoporte5.text = newValue
         }
     }
     
