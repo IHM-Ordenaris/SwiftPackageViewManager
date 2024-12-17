@@ -18,7 +18,7 @@ import UIKit
 class CustomButtonList: UIButton {
     
     // MARK: - Variables CustomButtonList
-    internal var delegateCustom: CustomButtonListDelegate!
+    internal weak var delegateCustom: CustomButtonListDelegate!
     private var menuOptions: [UIAction] = []
     
     // MARK: - Funciones Inicio
