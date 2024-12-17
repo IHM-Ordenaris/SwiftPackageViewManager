@@ -13,7 +13,7 @@ import UIKit
 
 public class VMCheckBoxBait: UIView {
     // MARK: - Variables
-    @objc public var delegateExterno: VMCheckBoxDelegate?
+    @objc weak public var delegateExterno: VMCheckBoxDelegate?
     private var selected: Bool = false
     private var colorBorder: UIColor = UIColor.baitColor_checkboxNoSelectBORDER()
     

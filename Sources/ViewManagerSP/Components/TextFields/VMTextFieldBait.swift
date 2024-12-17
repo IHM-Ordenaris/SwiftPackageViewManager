@@ -24,7 +24,7 @@ import UIKit
 // MARK: Public CLASS VMTextFields
 public class VMTextFieldBait: UIView, @preconcurrency CustomTextFieldDelegate, @preconcurrency CustomButtonListDelegate {
     // MARK: - Variables
-    @objc public var delegateExterno: VMTextFieldDelegateExterno?
+    @objc weak public var delegateExterno: VMTextFieldDelegateExterno?
     
     static var stateFieldStatic = 0
     private var errorsDisable: Bool = false
