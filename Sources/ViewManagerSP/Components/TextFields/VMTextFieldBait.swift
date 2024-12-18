@@ -304,11 +304,11 @@ public class VMTextFieldBait: UIView, @preconcurrency CustomTextFieldDelegate, @
     }
     
     // MARK: - CustomButtonListDelegate
-    func BtnListWillDisplayMenu(_ btn: CustomButtonList) {
+    func BtnListWillDisplayMenu() {
         self.delegateExterno?.VMTxtMiBaitWillDisplayMenuEx?(self, txtField: self.txtField)
     }
     
-    func BtnListDidEndEditing(_ btn: CustomButtonList, text: String, index: Int) {
+    func BtnListDidEndEditing(text: String, index: Int) {
         self.txtField.text = text
         delegateExterno?.VMTxtMiBaitDidEndSelecOptiontEx?(self, txtField: self.txtField, index: index)
         delegateExterno?.VMTxtMiBaitDidEndEditingEx(self, txtField: self.txtField)

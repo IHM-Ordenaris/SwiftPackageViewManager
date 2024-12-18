@@ -10,15 +10,15 @@ import UIKit
 // MARK: Protocol CustomTextFieldDelegate
 @objc internal protocol CustomButtonListDelegate {
     //Principales
-    @objc func BtnListWillDisplayMenu(_ btn: CustomButtonList)
-    @objc func BtnListDidEndEditing(_ btn: CustomButtonList, text: String, index: Int)
+    @objc func BtnListWillDisplayMenu()
+    @objc func BtnListDidEndEditing(text: String, index: Int)
 }
 
 @available(iOS 13.0, *)
 class CustomButtonList: UIButton {
     
     // MARK: - Variables CustomButtonList
-    internal weak var delegateCustom: CustomButtonListDelegate!
+    internal weak var delegateCustom: CustomButtonListDelegate?
     private var menuOptions: [UIAction] = []
     
     // MARK: - Funciones Inicio
@@ -48,11 +48,11 @@ class CustomButtonList: UIButton {
     // MARK: - Functions
     internal func createMenu(options: [String]) {
         self.menuOptions = options.map { option in
-            UIAction(title: option, handler: { action in
+            UIAction(title: option, handler: { [weak self] action in
 //                self.setTitle(action.title, for: .normal) // Actualiza el título del botón
                 for i in 0..<options.count {
                     if action.title == options[i]{
-                        self.delegateCustom.BtnListDidEndEditing(self, text: action.title, index: i)
+                        self?.delegateCustom?.BtnListDidEndEditing(text: action.title, index: i)
                         break
                     }
                 }
@@ -63,7 +63,7 @@ class CustomButtonList: UIButton {
     
     // MARK: - Eventos MENU
     override internal func contextMenuInteraction(_ interaction: UIContextMenuInteraction, willDisplayMenuFor configuration: UIContextMenuConfiguration, animator: (any UIContextMenuInteractionAnimating)?) {
-        self.delegateCustom.BtnListWillDisplayMenu(self)
+        self.delegateCustom?.BtnListWillDisplayMenu()
     }
     
 //    override func contextMenuInteraction(_ interaction: UIContextMenuInteraction, willEndFor configuration: UIContextMenuConfiguration, animator: (any UIContextMenuInteractionAnimating)?) {
