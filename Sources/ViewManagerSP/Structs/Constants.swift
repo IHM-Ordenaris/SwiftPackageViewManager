@@ -48,11 +48,15 @@ struct Constants {
                 // Activo
                 case activeBG = "ButtonAux1ActiveBG"
                 case activeTXT = "ButtonAux1ActiveTXT"
+                // Inactivo
+                case inactiveBG = "ButtonAux1InactiveBG"
             }
             enum Aux2: String {
                 // Activo
                 case activeBG = "ButtonAux2ActiveBG"
                 case activeTXT = "ButtonAux2ActiveTXT"
+                //Inactivo
+                case inactiveBG = "ButtonAux2InactiveBG"
             }
             enum Aux3: String {
                 // Activo

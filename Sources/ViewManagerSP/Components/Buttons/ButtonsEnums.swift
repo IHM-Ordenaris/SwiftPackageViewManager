@@ -49,6 +49,10 @@ public enum typeButtonEnum: Int {
                 return UIColor.baitColor_buttonSecundarioInactiveBG()
             case .buttonTexto:
                 return UIColor.clear
+            case .buttonAux1:
+                return UIColor.baitColor_buttonAux1InactiveBG()
+            case .buttonAux2:
+                return UIColor.baitColor_buttonAux2InactiveBG()
             default:
                 return UIColor.clear
             }

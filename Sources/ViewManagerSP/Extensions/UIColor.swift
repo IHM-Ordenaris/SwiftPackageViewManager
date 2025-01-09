@@ -82,6 +82,9 @@ func getVersionColor(nombre:String) -> UIColor {
     class func baitColor_buttonAux1ActiveBG() -> UIColor{
         return getVersionColor(nombre: Constants.Colors.Buttons.Aux1.activeBG.rawValue)
     }
+    class func baitColor_buttonAux1InactiveBG() -> UIColor{
+        return getVersionColor(nombre: Constants.Colors.Buttons.Aux1.inactiveBG.rawValue)
+    }
     // Título
     class func baitColor_buttonAux1ActiveTXT() -> UIColor{
         return getVersionColor(nombre: Constants.Colors.Buttons.Aux1.activeTXT.rawValue)
@@ -91,6 +94,9 @@ func getVersionColor(nombre:String) -> UIColor {
     // BackGround
     class func baitColor_buttonAux2ActiveBG() -> UIColor{
         return getVersionColor(nombre: Constants.Colors.Buttons.Aux2.activeBG.rawValue)
+    }
+    class func baitColor_buttonAux2InactiveBG() -> UIColor{
+        return getVersionColor(nombre: Constants.Colors.Buttons.Aux2.inactiveBG.rawValue)
     }
     // Título
     class func baitColor_buttonAux2ActiveTXT() -> UIColor{
