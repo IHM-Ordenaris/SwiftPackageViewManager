@@ -16,15 +16,26 @@ struct Constants {
     
     struct Colors {
         struct Buttons {
-            enum Principal: String {
+            struct Principal {
                 // Activo
-                case activeBG = "ButtonPrincipalActiveBG"
-                case activeBORDER = "ButtonPrincipalActiveBORDER"
-                case activeTXT = "ButtonPrincipalActiveTXT"
+                static let activeBG: String = "ButtonPrincipalActiveBG"
+                static let activeBORDER: String = "ButtonPrincipalActiveBORDER"
+                static let activeTXT: String = "ButtonPrincipalActiveTXT"
                 // Inactivo
-                case inactiveBG = "ButtonPrincipalInactiveBG"
-                case inactiveBORDER = "ButtonPrincipalInactiveBORDER"
-                case inactiveTXT = "ButtonPrincipalInactiveTXT"
+                static let inactiveBG: String = "ButtonPrincipalInactiveBG"
+                static let inactiveBORDER: String = "ButtonPrincipalInactiveBORDER"
+                static let inactiveTXT: String = "ButtonPrincipalInactiveTXT"
+                
+                enum Black: String {
+                    // Activo
+                    case activeBG = "ButtonPrincipalBlackActiveBG"
+                    case activeBORDER = "ButtonPrincipalBlackActiveBORDER"
+                    case activeTXT = "ButtonPrincipalBlackActiveTXT"
+                    // Inactivo
+                    case inactiveBG = "ButtonPrincipalBlackInactiveBG"
+                    case inactiveBORDER = "ButtonPrincipalBlackInactiveBORDER"
+                    case inactiveTXT = "ButtonPrincipalBlackInactiveTXT"
+                }
             }
             enum Secundario: String {
                 // Activo

@@ -22,24 +22,42 @@ func getVersionColor(nombre:String) -> UIColor {
     // MARK: - COLORS BUTTON PRIMARIO
     // BackGround
     class func baitColor_buttonPrimarioActiveBG() -> UIColor{
-        return getVersionColor(nombre: Constants.Colors.Buttons.Principal.activeBG.rawValue)
+        return getVersionColor(nombre: Constants.Colors.Buttons.Principal.activeBG)
     }
     class func baitColor_buttonPrimarioInactiveBG() -> UIColor{
-        return getVersionColor(nombre: Constants.Colors.Buttons.Principal.inactiveBG.rawValue)
+        return getVersionColor(nombre: Constants.Colors.Buttons.Principal.inactiveBG)
+    }
+    class func baitColor_buttonPrimarioBlackActiveBG() -> UIColor{
+        return getVersionColor(nombre: Constants.Colors.Buttons.Principal.Black.activeBG.rawValue)
+    }
+    class func baitColor_buttonPrimarioBlackInactiveBG() -> UIColor{
+        return getVersionColor(nombre: Constants.Colors.Buttons.Principal.Black.inactiveBG.rawValue)
     }
     // Título
     class func baitColor_buttonPrimarioActiveTXT() -> UIColor{
-        return getVersionColor(nombre: Constants.Colors.Buttons.Principal.activeTXT.rawValue)
+        return getVersionColor(nombre: Constants.Colors.Buttons.Principal.activeTXT)
     }
     class func baitColor_buttonPrimarioInactiveTXT() -> UIColor{
-        return getVersionColor(nombre: Constants.Colors.Buttons.Principal.inactiveTXT.rawValue)
+        return getVersionColor(nombre: Constants.Colors.Buttons.Principal.inactiveTXT)
+    }
+    class func baitColor_buttonPrimarioBlackActiveTXT() -> UIColor{
+        return getVersionColor(nombre: Constants.Colors.Buttons.Principal.Black.activeTXT.rawValue)
+    }
+    class func baitColor_buttonPrimarioBlackInactiveTXT() -> UIColor{
+        return getVersionColor(nombre: Constants.Colors.Buttons.Principal.Black.inactiveTXT.rawValue)
     }
     // Borde
     class func baitColor_buttonPrimarioActiveBORDER() -> UIColor{
-        return getVersionColor(nombre: Constants.Colors.Buttons.Principal.activeBORDER.rawValue)
+        return getVersionColor(nombre: Constants.Colors.Buttons.Principal.activeBORDER)
     }
     class func baitColor_buttonPrimarioInactiveBORDER() -> UIColor{
-        return getVersionColor(nombre: Constants.Colors.Buttons.Principal.inactiveBORDER.rawValue)
+        return getVersionColor(nombre: Constants.Colors.Buttons.Principal.inactiveBORDER)
+    }
+    class func baitColor_buttonPrimarioBlackActiveBORDER() -> UIColor{
+        return getVersionColor(nombre: Constants.Colors.Buttons.Principal.Black.activeBORDER.rawValue)
+    }
+    class func baitColor_buttonPrimarioBlackInactiveBORDER() -> UIColor{
+        return getVersionColor(nombre: Constants.Colors.Buttons.Principal.Black.inactiveBORDER.rawValue)
     }
     
     // MARK: - COLORS BUTTON SECUNDARIO

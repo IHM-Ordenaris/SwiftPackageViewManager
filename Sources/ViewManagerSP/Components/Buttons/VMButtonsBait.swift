@@ -114,6 +114,21 @@ public class VMButtonsBait: UIButton {
             } else {
                 self.layer.borderColor = colorBorde.cgColor
             }
+            
+            /// Variantes de button Primario..
+            if _type == .buttonPrimario && _identifier == .alternative {
+                let conf = _identifier.getConfigPrincipalButton(active: newValue)
+                self.setTitleColor(conf.titleColor, for: .normal)
+                self.backgroundColor = conf.backgroundColor
+                self.layer.borderColor = conf.borderColor
+            }
+            /// Variantes de button Secundario..
+            if _type == .buttonSecundario && _identifier == .alternative {
+                let conf = _identifier.getConfigSecundarioButton(active: newValue)
+                self.setTitleColor(conf.titleColor, for: .normal)
+                self.backgroundColor = conf.backgroundColor
+                self.layer.borderColor = conf.borderColor
+            }
         }
     }
     
@@ -161,6 +176,18 @@ public class VMButtonsBait: UIButton {
                     // Espaciado entre texto e imagen
                     self.semanticContentAttribute = .forceRightToLeft
                     self.imageEdgeInsets = UIEdgeInsets(top: (self.bounds.height/2) - 3, left: 16, bottom: (self.bounds.height/2) - 3, right: 10)
+                } else if enumValue == .alternative {
+                    let configuracion = enumValue.getConfigPrincipalButton(active: self.isUserInteractionEnabled)
+                    self.setTitleColor(configuracion.titleColor, for: .normal)
+                    self.backgroundColor = configuracion.backgroundColor
+                    self.layer.borderColor = configuracion.borderColor
+                }
+            } else if _type == .buttonSecundario {
+                if enumValue == .alternative {
+                    let configuracion = enumValue.getConfigSecundarioButton(active: self.isUserInteractionEnabled)
+                    self.setTitleColor(configuracion.titleColor, for: .normal)
+                    self.backgroundColor = configuracion.backgroundColor
+                    self.layer.borderColor = configuracion.borderColor
                 }
             }
         }

@@ -156,6 +156,67 @@ public enum identifierButtonEnum: String {
     case blue
     case underline
     case image
+    case alternative
+    
+    /// Configura el diseño del botón PRIMARIO
+    func getConfigPrincipalButton(active: Bool = true) -> ConfigButtonPrincipal {
+        var config = ConfigButtonPrincipal()
+        if active {
+            switch self {
+            case .alternative:
+                config.titleColor = UIColor.baitColor_buttonPrimarioBlackActiveTXT()
+                config.backgroundColor = UIColor.baitColor_buttonPrimarioBlackActiveBG()
+                config.borderColor = UIColor.baitColor_buttonPrimarioBlackActiveBORDER().cgColor
+            default:
+                config.titleColor = UIColor.baitColor_buttonPrimarioActiveTXT()
+                config.backgroundColor = UIColor.baitColor_buttonPrimarioActiveBG()
+                config.borderColor = UIColor.baitColor_buttonPrimarioActiveBORDER().cgColor
+            }
+        } else {
+            switch self {
+            case .alternative:
+                config.titleColor = UIColor.baitColor_buttonPrimarioBlackInactiveTXT()
+                config.backgroundColor = UIColor.baitColor_buttonPrimarioBlackInactiveBG()
+                config.borderColor = UIColor.baitColor_buttonPrimarioBlackInactiveBORDER().cgColor
+            default:
+                config.titleColor = UIColor.baitColor_buttonPrimarioInactiveTXT()
+                config.backgroundColor = UIColor.baitColor_buttonPrimarioInactiveBG()
+                config.borderColor = UIColor.baitColor_buttonPrimarioInactiveBORDER().cgColor
+            }
+        }
+        
+        return config
+    }
+    
+    /// Configura el diseño del botón SECUNDARIO
+    func getConfigSecundarioButton(active: Bool = true) -> ConfigButtonSecundario {
+        var config = ConfigButtonSecundario()
+        if active {
+            switch self {
+            case .alternative:
+                config.titleColor = UIColor.baitColor_buttonSecundarioActiveTXT()
+                config.backgroundColor = UIColor.baitColor_buttonSecundarioActiveBG()
+                config.borderColor = UIColor.baitColor_buttonSecundarioActiveBG().cgColor
+            default:
+                config.titleColor = UIColor.baitColor_buttonSecundarioActiveTXT()
+                config.backgroundColor = UIColor.baitColor_buttonSecundarioActiveBG()
+                config.borderColor = UIColor.baitColor_buttonSecundarioActiveBORDER().cgColor
+            }
+        } else {
+            switch self {
+            case .alternative:
+                config.titleColor = UIColor.baitColor_buttonSecundarioInactiveTXT()
+                config.backgroundColor = UIColor.baitColor_buttonSecundarioInactiveBG()
+                config.borderColor = UIColor.baitColor_buttonSecundarioInactiveBG().cgColor
+            default:
+                config.titleColor = UIColor.baitColor_buttonSecundarioInactiveTXT()
+                config.backgroundColor = UIColor.baitColor_buttonSecundarioInactiveBG()
+                config.borderColor = UIColor.baitColor_buttonSecundarioInactiveBORDER().cgColor
+            }
+        }
+        
+        return config
+    }
     
     /// Configura el diseño del botón texto
     /// - Parameter button: - Botón
@@ -191,6 +252,8 @@ public enum identifierButtonEnum: String {
             return UIFont(name: Constants.Fonts.gothamRegular, size: size) ?? .systemFont(ofSize: size)
         case .image:
             return UIFont(name: Constants.Fonts.gothamBold, size: size) ?? .systemFont(ofSize: size)
+        case .alternative:
+            return UIFont(name: Constants.Fonts.gothamBold, size: size) ?? .systemFont(ofSize: size)
         default:
             return UIFont.systemFont(ofSize: size)
         }
@@ -206,5 +269,29 @@ struct ConfigButton {
         self.titleColor = UIColor.clear
         self.font = UIFont.systemFont(ofSize: 12)
         self.underline = false
+    }
+}
+
+struct ConfigButtonPrincipal {
+    var titleColor: UIColor
+    var backgroundColor: UIColor
+    var borderColor: CGColor
+    
+    init() {
+        self.titleColor = UIColor.clear
+        self.backgroundColor = UIColor.clear
+        self.borderColor = UIColor.clear.cgColor
+    }
+}
+
+struct ConfigButtonSecundario {
+    var titleColor: UIColor
+    var backgroundColor: UIColor
+    var borderColor: CGColor
+    
+    init() {
+        self.titleColor = UIColor.clear
+        self.backgroundColor = UIColor.clear
+        self.borderColor = UIColor.clear.cgColor
     }
 }
