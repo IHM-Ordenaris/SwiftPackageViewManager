@@ -62,7 +62,6 @@ public class VMTextFieldBait: UIView, @preconcurrency CustomTextFieldDelegate, @
         self.imgInfo.tintColor = UIColor.baitColor_TextFieldTEXT(onlyLight: self.lightMode)
         self.imgInfo.isUserInteractionEnabled = true
         
-        self.txtField.onlyLighMode = self.onlyLighMode
         self.txtField.delegateCustom = self
         self.btnList.delegateCustom = self
         
@@ -107,6 +106,16 @@ public class VMTextFieldBait: UIView, @preconcurrency CustomTextFieldDelegate, @
     }
     
     // MARK: - IBinspectables
+    @IBInspectable public var onlyLighMode: Bool {
+        get {
+            self.lightMode
+        }
+        set {
+            self.lightMode = newValue
+            self.txtField.onlyLighMode = newValue
+        }
+    }
+    
     @IBInspectable public var tipoCampo: Int = 1 {
         didSet {
             guard let enumValue = EnumTypeTxtBait(rawValue: tipoCampo) else{
@@ -209,16 +218,6 @@ public class VMTextFieldBait: UIView, @preconcurrency CustomTextFieldDelegate, @
         }
         set {
             self.errorsDisable = newValue
-        }
-    }
-    
-    @IBInspectable public var onlyLighMode: Bool {
-        get {
-            self.lightMode
-        }
-        set {
-            self.lightMode = newValue
-            self.txtField.onlyLighMode = newValue
         }
     }
     
