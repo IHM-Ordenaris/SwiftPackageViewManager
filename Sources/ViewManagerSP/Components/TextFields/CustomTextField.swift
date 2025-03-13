@@ -22,7 +22,7 @@ import UIKit
 public class CustomTextField: UITextField {
     
     // MARK: - Variables TextField
-    internal var lightMode: Bool!
+    internal var lightMode: Bool = false
     internal var typeTxt: EnumTypeTxtBait!
     internal var stateTxt:EnumStateTxtBait!
     internal weak var delegateCustom: CustomTextFieldDelegate!
