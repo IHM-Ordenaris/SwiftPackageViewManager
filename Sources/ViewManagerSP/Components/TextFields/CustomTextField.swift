@@ -22,6 +22,7 @@ import UIKit
 public class CustomTextField: UITextField {
     
     // MARK: - Variables TextField
+    internal var lightMode: Bool!
     internal var typeTxt: EnumTypeTxtBait!
     internal var stateTxt:EnumStateTxtBait!
     internal weak var delegateCustom: CustomTextFieldDelegate!
@@ -46,11 +47,11 @@ public class CustomTextField: UITextField {
     public override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         if #available(iOS 13.0, *) {
             self.traitCollection.performAsCurrent {
-                self.layer.borderColor = self.stateTxt.getColorBorde()!.cgColor
+                self.layer.borderColor = self.stateTxt.getColorBorde(onlyLight: self.lightMode)!.cgColor
             }
-            self.layer.borderColor = self.stateTxt.getColorBorde()!.resolvedColor(with: self.traitCollection).cgColor
+            self.layer.borderColor = self.stateTxt.getColorBorde(onlyLight: self.lightMode)!.resolvedColor(with: self.traitCollection).cgColor
         } else {
-            self.layer.borderColor = self.stateTxt.getColorBorde()!.cgColor
+            self.layer.borderColor = self.stateTxt.getColorBorde(onlyLight: self.lightMode)!.cgColor
         }
     }
     
@@ -68,6 +69,12 @@ public class CustomTextField: UITextField {
     }
     
     // MARK: - Variables configurables desde VMTextFieldBait
+    internal var onlyLighMode: Bool = false {
+        didSet {
+            self.lightMode = onlyLighMode
+        }
+    }
+    
     internal var typeField: Int = 1 {
         didSet {
             guard let enumValue = EnumTypeTxtBait(rawValue: typeField) else {
@@ -86,7 +93,7 @@ public class CustomTextField: UITextField {
                 return
             }
             
-            let colorBorde : UIColor = enumValue.getColorBorde()!
+            let colorBorde : UIColor = enumValue.getColorBorde(onlyLight: self.lightMode)!
             if #available(iOS 13.0, *) {
                 self.traitCollection.performAsCurrent {
                     self.layer.borderColor = colorBorde.cgColor
@@ -97,9 +104,9 @@ public class CustomTextField: UITextField {
             }
             self.layer.borderWidth = enumValue.getWidthBorder()!
             
-            self.backgroundColor = enumValue.getColorBG()
-            self.tintColor = enumValue.getColorPrompt()!
-            self.textColor = enumValue.getColorTexto()!
+            self.backgroundColor = enumValue.getColorBG(onlyLight: self.lightMode)
+            self.tintColor = enumValue.getColorPrompt(onlyLight: self.lightMode)!
+            self.textColor = enumValue.getColorTexto(onlyLight: self.lightMode)!
             stateTxt = enumValue
             
             if enumValue == .disable {
@@ -217,7 +224,7 @@ public class CustomTextField: UITextField {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(CustomTextField.tapResponse(tapGestureRecognizer:)))
         self.viewImg.addGestureRecognizer(tapGestureRecognizer)
         self.viewImg.isUserInteractionEnabled = true
-        self.viewImg.tintColor = UIColor.baitColor_TextFieldTEXT()
+        self.viewImg.tintColor = UIColor.baitColor_TextFieldTEXT(onlyLight: self.lightMode)
         
         let widthInit = (self.viewImg.frame.width/2)-10
         let heightInit = (self.viewImg.frame.height/2)-10
@@ -257,7 +264,7 @@ public class CustomTextField: UITextField {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(CustomTextField.tapResponse(tapGestureRecognizer:)))
         self.viewImg.addGestureRecognizer(tapGestureRecognizer)
         self.viewImg.isUserInteractionEnabled = true
-        self.viewImg.tintColor = UIColor.baitColor_TextFieldTEXT()
+        self.viewImg.tintColor = UIColor.baitColor_TextFieldTEXT(onlyLight: self.lightMode)
         
         let widthInit = (self.viewImg.frame.width/2)-25
         let heightInit = (self.viewImg.frame.height/2)-10
@@ -283,7 +290,7 @@ public class CustomTextField: UITextField {
                     attributes: underlineAttribute
                  )
             self.labelRight.attributedText = attributeString
-            self.labelRight.textColor = UIColor.baitColor_textFieldPasswordSHOW()
+            self.labelRight.textColor = UIColor.baitColor_textFieldPasswordSHOW(onlyLight: self.lightMode)
             self.viewImg.addSubview(self.labelRight)
             self.rightView = self.viewImg
             self.rightViewMode = .always
@@ -296,7 +303,7 @@ public class CustomTextField: UITextField {
             self.imageRight = UIImageView(frame: CGRect(origin: initPoint, size: CGSize(width: sizeI, height: sizeI)))
             self.imageRight.contentMode = .scaleAspectFit
             self.imageRight.image = self.typeTxt.getImageRight()
-            self.imageRight.tintColor = UIColor.baitColor_TextFieldTEXT()
+            self.imageRight.tintColor = UIColor.baitColor_TextFieldTEXT(onlyLight: self.lightMode)
             
             self.viewImg.addSubview(self.imageRight)
             self.rightView = self.viewImg
@@ -313,14 +320,14 @@ public class CustomTextField: UITextField {
                 self.isSecureTextEntry = false
                 DispatchQueue.main.async {
                     self.labelRight.text = "Ocultar"
-                    self.labelRight.textColor = UIColor.baitColor_textFieldPasswordHIDE()
+                    self.labelRight.textColor = UIColor.baitColor_textFieldPasswordHIDE(onlyLight: self.lightMode)
                     // self.labelRight.setNeedsDisplay()
                 }
             } else {
                 self.isSecureTextEntry = true
                 DispatchQueue.main.async {
                     self.labelRight.text = "Mostrar"
-                    self.labelRight.textColor = UIColor.baitColor_textFieldPasswordSHOW()
+                    self.labelRight.textColor = UIColor.baitColor_textFieldPasswordSHOW(onlyLight: self.lightMode)
                     // self.imageLeft.setNeedsDisplay()
                 }
             }

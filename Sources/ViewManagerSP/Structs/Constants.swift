@@ -88,14 +88,25 @@ struct Constants {
                 case border = "TextFieldGeneralBORDER"
                 case text = "TextFieldGeneralTEXT"
                 case backGround = "TextFieldGeneralBG"
+                
+                case tituloOnlyLight = "TextFieldGeneralTITLE_onlyLight"
+                case borderOnlyLight = "TextFieldGeneralBORDER_onlyLight"
+                case textOnlyLght = "TextFieldGeneralTEXT_onlyLight"
+                case backGroundOnlyLight = "TextFieldGeneralBG_onlyLight"
             }
             enum Error: String {
                 case border = "TextFieldErrorBORDER"
                 case support = "TextFieldErrorSUPPORT"
+                
+                case borderOnlyLight = "TextFieldErrorBORDER_onlyLight"
+                case supportOnlyLight = "TextFieldErrorSUPPORT_onlyLight"
             }
             enum Password: String {
                 case show = "TextFieldPasswordSHOW"
                 case hide = "TextFieldPasswordHIDE"
+                
+                case showOnlyLight = "TextFieldPasswordSHOW_onlyLight"
+                case hideOnlyLight = "TextFieldPasswordHIDE_onlyLight"
             }
         }
         

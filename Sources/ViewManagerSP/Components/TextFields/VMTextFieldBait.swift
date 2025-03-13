@@ -28,6 +28,7 @@ public class VMTextFieldBait: UIView, @preconcurrency CustomTextFieldDelegate, @
     
     static var stateFieldStatic = 0
     private var errorsDisable: Bool = false
+    private var lightMode: Bool = false
     
     //MARK: - IBOutlets
     @IBOutlet weak var viewBGB5: UIView!
@@ -58,9 +59,10 @@ public class VMTextFieldBait: UIView, @preconcurrency CustomTextFieldDelegate, @
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tapImageHelp(tapGestureRecognizer:)))
         self.imgInfo.addGestureRecognizer(tapGesture)
         self.imgInfo.isHidden = true
-        self.imgInfo.tintColor = UIColor.baitColor_TextFieldTEXT()
+        self.imgInfo.tintColor = UIColor.baitColor_TextFieldTEXT(onlyLight: self.lightMode)
         self.imgInfo.isUserInteractionEnabled = true
         
+        self.txtField.onlyLighMode = self.onlyLighMode
         self.txtField.delegateCustom = self
         self.btnList.delegateCustom = self
         
@@ -133,8 +135,8 @@ public class VMTextFieldBait: UIView, @preconcurrency CustomTextFieldDelegate, @
             VMTextFieldBait.stateFieldStatic = estadoCampo
             self.txtField.stateField = enumValue.rawValue
             
-            self.lblTitulo5.textColor = enumValue.getColorTitle()!
-            self.lblSoporte5.textColor = enumValue.getColorTextoSoporte()!
+            self.lblTitulo5.textColor = enumValue.getColorTitle(onlyLight: self.lightMode)!
+            self.lblSoporte5.textColor = enumValue.getColorTextoSoporte(onlyLight: self.lightMode)!
             
             if enumValue != .error {
                 self.lblSoporte5.text = ""
@@ -207,6 +209,16 @@ public class VMTextFieldBait: UIView, @preconcurrency CustomTextFieldDelegate, @
         }
         set {
             self.errorsDisable = newValue
+        }
+    }
+    
+    @IBInspectable public var onlyLighMode: Bool {
+        get {
+            self.lightMode
+        }
+        set {
+            self.lightMode = newValue
+            self.txtField.onlyLighMode = newValue
         }
     }
     

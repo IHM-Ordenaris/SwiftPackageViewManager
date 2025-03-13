@@ -144,37 +144,61 @@ func getVersionColor(nombre:String) -> UIColor {
     
     // MARK: - COLORS TEXT FIELD GENERAL
     // Título
-    class func baitColor_textFieldTITLE() -> UIColor{
+    class func baitColor_textFieldTITLE(onlyLight: Bool) -> UIColor{
+        if onlyLight {
+            return getVersionColor(nombre: Constants.Colors.TextField.General.tituloOnlyLight.rawValue)
+        }
         return getVersionColor(nombre: Constants.Colors.TextField.General.titulo.rawValue)
     }
     // Borde
-    class func baitColor_textFieldBORDER() -> UIColor{
+    class func baitColor_textFieldBORDER(onlyLight: Bool) -> UIColor{
+        if onlyLight {
+            return getVersionColor(nombre: Constants.Colors.TextField.General.borderOnlyLight.rawValue)
+        }
         return getVersionColor(nombre: Constants.Colors.TextField.General.border.rawValue)
     }
     // Texto Principal
-    class func baitColor_TextFieldTEXT() -> UIColor {
+    class func baitColor_TextFieldTEXT(onlyLight: Bool) -> UIColor {
+        if onlyLight {
+            return getVersionColor(nombre: Constants.Colors.TextField.General.textOnlyLght.rawValue)
+        }
         return getVersionColor(nombre: Constants.Colors.TextField.General.text.rawValue)
     }
     // BackGround
-    class func baitColor_TextFieldBG() -> UIColor {
+    class func baitColor_TextFieldBG(onlyLight: Bool) -> UIColor {
+        if onlyLight {
+            return getVersionColor(nombre: Constants.Colors.TextField.General.backGroundOnlyLight.rawValue)
+        }
         return getVersionColor(nombre: Constants.Colors.TextField.General.backGround.rawValue)
     }
     
     // MARK: - COLORS TEXT FIELD ERROR
     // Borde
-    class func baitColor_textFieldErrorBORDER() -> UIColor{
+    class func baitColor_textFieldErrorBORDER(onlyLight: Bool) -> UIColor {
+        if onlyLight {
+            return getVersionColor(nombre: Constants.Colors.TextField.Error.borderOnlyLight.rawValue)
+        }
         return getVersionColor(nombre: Constants.Colors.TextField.Error.border.rawValue)
     }
     // Texto Soporte
-    class func baitColor_TextFieldErrorSUPPORT() -> UIColor {
+    class func baitColor_TextFieldErrorSUPPORT(onlyLight: Bool) -> UIColor {
+        if onlyLight {
+            return getVersionColor(nombre: Constants.Colors.TextField.Error.supportOnlyLight.rawValue)
+        }
         return getVersionColor(nombre: Constants.Colors.TextField.Error.support.rawValue)
     }
     
     // MARK: - COLORS TEXT FIELD PASSWORD
-    class func baitColor_textFieldPasswordSHOW() -> UIColor{
+    class func baitColor_textFieldPasswordSHOW(onlyLight: Bool) -> UIColor {
+        if onlyLight {
+            return getVersionColor(nombre: Constants.Colors.TextField.Password.showOnlyLight.rawValue)
+        }
         return getVersionColor(nombre: Constants.Colors.TextField.Password.show.rawValue)
     }
-    class func baitColor_textFieldPasswordHIDE() -> UIColor{
+    class func baitColor_textFieldPasswordHIDE(onlyLight: Bool) -> UIColor {
+        if onlyLight {
+            return getVersionColor(nombre: Constants.Colors.TextField.Password.hideOnlyLight.rawValue)
+        }
         return getVersionColor(nombre: Constants.Colors.TextField.Password.hide.rawValue)
     }
     

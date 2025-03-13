@@ -16,52 +16,52 @@ public enum EnumStateTxtBait: Int {
     case focus = 3
     case error = 0
     
-    func getColorTitle() -> UIColor? {
+    func getColorTitle(onlyLight:Bool) -> UIColor? {
         switch self {
         case .enable:
-            return  UIColor.baitColor_textFieldTITLE()
+            return  UIColor.baitColor_textFieldTITLE(onlyLight: onlyLight)
         default:
-            return UIColor.baitColor_textFieldTITLE()
+            return UIColor.baitColor_textFieldTITLE(onlyLight: onlyLight)
         }
     }
     
-    func getColorBorde() -> UIColor? {
+    func getColorBorde(onlyLight:Bool) -> UIColor? {
         switch self {
         case .error:
-            return UIColor.baitColor_textFieldErrorBORDER()
+            return UIColor.baitColor_textFieldErrorBORDER(onlyLight: onlyLight)
         default:
-            return UIColor.baitColor_textFieldBORDER()
+            return UIColor.baitColor_textFieldBORDER(onlyLight: onlyLight)
         }
     }
     
-    func getColorPrompt() -> UIColor? {
-        return  UIColor.baitColor_TextFieldTEXT()
+    func getColorPrompt(onlyLight:Bool) -> UIColor? {
+        return  UIColor.baitColor_TextFieldTEXT(onlyLight: onlyLight)
     }
     
-    func getColorTexto() -> UIColor? {
+    func getColorTexto(onlyLight:Bool) -> UIColor? {
         switch self {
         case .enable:
-            return  UIColor.baitColor_TextFieldTEXT()
+            return  UIColor.baitColor_TextFieldTEXT(onlyLight: onlyLight)
         default:
-            return  UIColor.baitColor_TextFieldTEXT()
+            return  UIColor.baitColor_TextFieldTEXT(onlyLight: onlyLight)
         }
     }
     
-    func getColorBG() -> UIColor? {
+    func getColorBG(onlyLight:Bool) -> UIColor? {
         switch self {
         case .enable:
-            return  UIColor.baitColor_TextFieldBG()
+            return  UIColor.baitColor_TextFieldBG(onlyLight: onlyLight)
         default:
-            return  UIColor.baitColor_TextFieldBG()
+            return  UIColor.baitColor_TextFieldBG(onlyLight: onlyLight)
         }
     }
     
-    func getColorTextoSoporte() -> UIColor? {
+    func getColorTextoSoporte(onlyLight:Bool) -> UIColor? {
         switch self {
         case .error:
-            return UIColor.baitColor_TextFieldErrorSUPPORT()
+            return UIColor.baitColor_TextFieldErrorSUPPORT(onlyLight: onlyLight)
         default:
-            return UIColor.baitColor_TextFieldErrorSUPPORT()
+            return UIColor.baitColor_TextFieldErrorSUPPORT(onlyLight: onlyLight)
         }
     }
     
